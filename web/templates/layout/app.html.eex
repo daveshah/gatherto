@@ -16,10 +16,10 @@
       <header class="header">
         <nav role="navigation">
           <ul class="nav nav-pills pull-right">
-            <li><a href="http://www.phoenixframework.org/docs">Get Started</a></li>
+            <a class="btn btn-primary" href="/"> Login </a>
           </ul>
         </nav>
-        <span class="logo"></span>
+        <span class="localcorral-logo"></span>
       </header>
 
       <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
