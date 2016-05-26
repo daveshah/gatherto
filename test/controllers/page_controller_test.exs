@@ -13,7 +13,7 @@ defmodule Rnnr.PageControllerTest do
   end
 
   defp page_contains_sign_up(conn) do
-    assert html_response(conn, 200) =~ "Sign Up"
+    assert html_response(conn, 200) =~ "Sign Up For Free"
   end
 
 end

@@ -16,7 +16,6 @@
       <header class="header">
         <nav role="navigation">
           <ul class="nav nav-pills pull-right">
-            <a class="btn btn-primary" href="/"> Login </a>
           </ul>
         </nav>
         <span class="localcorral-logo"></span>
