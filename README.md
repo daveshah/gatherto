@@ -1,4 +1,4 @@
-# Local Corral [![Build Status](https://travis-ci.org/daveshah/local_corral.svg?branch=master)](https://travis-ci.org/daveshah/local_corral)
+# Rnnr [![Build Status](https://travis-ci.org/daveshah/rnnr.svg?branch=master)](https://travis-ci.org/daveshah/rnnr)
 
 Inspired by the fact that [97% of the time, I run alone](http://goo.gl/KP8uIO)
 
