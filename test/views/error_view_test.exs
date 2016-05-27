@@ -1,21 +1,21 @@
-defmodule LocalCorral.ErrorViewTest do
-  use LocalCorral.ConnCase, async: true
+defmodule Rnnr.ErrorViewTest do
+  use Rnnr.ConnCase, async: true
 
   # Bring render/3 and render_to_string/3 for testing custom views
   import Phoenix.View
 
   test "renders 404.html" do
-    assert render_to_string(LocalCorral.ErrorView, "404.html", []) ==
+    assert render_to_string(Rnnr.ErrorView, "404.html", []) ==
            "Page not found"
   end
 
   test "render 500.html" do
-    assert render_to_string(LocalCorral.ErrorView, "500.html", []) ==
+    assert render_to_string(Rnnr.ErrorView, "500.html", []) ==
            "Server internal error"
   end
 
   test "render any other" do
-    assert render_to_string(LocalCorral.ErrorView, "505.html", []) ==
+    assert render_to_string(Rnnr.ErrorView, "505.html", []) ==
            "Server internal error"
   end
 end

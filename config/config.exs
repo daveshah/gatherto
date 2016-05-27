@@ -6,12 +6,12 @@
 use Mix.Config
 
 # Configures the endpoint
-config :local_corral, LocalCorral.Endpoint,
+config :rnnr, Rnnr.Endpoint,
   url: [host: "localhost"],
   root: Path.dirname(__DIR__),
   secret_key_base: "8SDyRcuf6sPsE6JM3SHVoUQ327n21ZXU1zxAnc51JnDPeCGXbWQ7gIYKxhoCZNKH",
   render_errors: [accepts: ~w(html json)],
-  pubsub: [name: LocalCorral.PubSub,
+  pubsub: [name: Rnnr.PubSub,
            adapter: Phoenix.PubSub.PG2]
 
 # Configures Elixir's Logger

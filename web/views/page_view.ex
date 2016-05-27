@@ -1,3 +1,3 @@
-defmodule LocalCorral.PageView do
-  use LocalCorral.Web, :view
+defmodule Rnnr.PageView do
+  use Rnnr.Web, :view
 end

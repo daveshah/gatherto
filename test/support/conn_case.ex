@@ -1,4 +1,4 @@
-defmodule LocalCorral.ConnCase do
+defmodule Rnnr.ConnCase do
   @moduledoc """
   This module defines the test case to be used by
   tests that require setting up a connection.
@@ -20,21 +20,21 @@ defmodule LocalCorral.ConnCase do
       # Import conveniences for testing with connections
       use Phoenix.ConnTest
 
-      alias LocalCorral.Repo
+      alias Rnnr.Repo
       import Ecto
       import Ecto.Changeset
       import Ecto.Query, only: [from: 1, from: 2]
 
-      import LocalCorral.Router.Helpers
+      import Rnnr.Router.Helpers
 
       # The default endpoint for testing
-      @endpoint LocalCorral.Endpoint
+      @endpoint Rnnr.Endpoint
     end
   end
 
   setup tags do
     unless tags[:async] do
-      Ecto.Adapters.SQL.restart_test_transaction(LocalCorral.Repo, [])
+      Ecto.Adapters.SQL.restart_test_transaction(Rnnr.Repo, [])
     end
 
     {:ok, conn: Phoenix.ConnTest.conn()}

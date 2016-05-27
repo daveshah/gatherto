@@ -1,5 +1,5 @@
-defmodule LocalCorral.PageController do
-  use LocalCorral.Web, :controller
+defmodule Rnnr.PageController do
+  use Rnnr.Web, :controller
 
   def index(conn, _params) do
     render conn, "index.html"

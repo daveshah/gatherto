@@ -1,3 +1,3 @@
-defmodule LocalCorral.LayoutView do
-  use LocalCorral.Web, :view
+defmodule Rnnr.LayoutView do
+  use Rnnr.Web, :view
 end
