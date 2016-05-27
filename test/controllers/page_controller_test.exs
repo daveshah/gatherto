@@ -5,7 +5,7 @@ defmodule Rnnr.PageControllerTest do
     conn = get conn, "/"
     assert page_contains_login conn
     assert page_contains_sign_up conn
-    assert html_response(conn, 200) =~ "Welcome to Local Corral"
+    assert html_response(conn, 200) =~ "Welcome to Runnr"
   end
 
   defp page_contains_login(conn) do
