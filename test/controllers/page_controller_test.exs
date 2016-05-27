@@ -1,5 +1,5 @@
-defmodule LocalCorral.PageControllerTest do
-  use LocalCorral.ConnCase
+defmodule Rnnr.PageControllerTest do
+  use Rnnr.ConnCase
 
   test "GET /", %{conn: conn} do
     conn = get conn, "/"

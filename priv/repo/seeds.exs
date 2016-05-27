@@ -5,7 +5,7 @@
 # Inside the script, you can read and write to any of your
 # repositories directly:
 #
-#     LocalCorral.Repo.insert!(%LocalCorral.SomeModel{})
+#     Rnnr.Repo.insert!(%Rnnr.SomeModel{})
 #
 # We recommend using the bang functions (`insert!`, `update!`
 # and so on) as they will fail if something goes wrong.

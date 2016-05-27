@@ -1,3 +1,3 @@
-defmodule LocalCorral.PageViewTest do
-  use LocalCorral.ConnCase, async: true
+defmodule Rnnr.PageViewTest do
+  use Rnnr.ConnCase, async: true
 end

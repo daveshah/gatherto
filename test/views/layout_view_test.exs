@@ -1,3 +1,3 @@
-defmodule LocalCorral.LayoutViewTest do
-  use LocalCorral.ConnCase, async: true
+defmodule Rnnr.LayoutViewTest do
+  use Rnnr.ConnCase, async: true
 end

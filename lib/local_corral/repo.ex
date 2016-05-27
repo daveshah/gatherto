@@ -1,3 +1,3 @@
-defmodule LocalCorral.Repo do
-  use Ecto.Repo, otp_app: :local_corral
+defmodule Rnnr.Repo do
+  use Ecto.Repo, otp_app: :rnnr
 end

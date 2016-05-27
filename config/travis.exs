@@ -3,7 +3,7 @@ use Mix.Config
 import_config "test.exs"
 
 # Configure your database
-config :local_corral, LocalCorral.Repo,
+config :rnnr, Rnnr.Repo,
   adapter: Ecto.Adapters.Postgres,
   username: "postgres",
   password: "",

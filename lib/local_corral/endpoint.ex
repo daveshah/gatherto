@@ -1,14 +1,14 @@
-defmodule LocalCorral.Endpoint do
-  use Phoenix.Endpoint, otp_app: :local_corral
+defmodule Rnnr.Endpoint do
+  use Phoenix.Endpoint, otp_app: :rnnr
 
-  socket "/socket", LocalCorral.UserSocket
+  socket "/socket", Rnnr.UserSocket
 
   # Serve at "/" the static files from "priv/static" directory.
   #
   # You should set gzip to true if you are running phoenix.digest
   # when deploying your static files in production.
   plug Plug.Static,
-    at: "/", from: :local_corral, gzip: false,
+    at: "/", from: :rnnr, gzip: false,
     only: ~w(css fonts images js favicon.ico robots.txt)
 
   # Code reloading can be explicitly enabled under the
@@ -35,5 +35,5 @@ defmodule LocalCorral.Endpoint do
     key: "_local_corral_key",
     signing_salt: "1cL+aWSE"
 
-  plug LocalCorral.Router
+  plug Rnnr.Router
 end

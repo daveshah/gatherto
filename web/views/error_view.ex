@@ -1,5 +1,5 @@
-defmodule LocalCorral.ErrorView do
-  use LocalCorral.Web, :view
+defmodule Rnnr.ErrorView do
+  use Rnnr.Web, :view
 
   def render("404.html", _assigns) do
     "Page not found"
