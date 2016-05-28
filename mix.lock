@@ -20,4 +20,6 @@
   "poolboy": {:hex, :poolboy, "1.5.1", "6b46163901cfd0a1b43d692657ed9d7e599853b3b21b95ae5ae0a777cf9b6ca8", [:rebar], []},
   "postgrex": {:hex, :postgrex, "0.11.1", "f48af70c0a58b9bfd1aaa456ec4273624554cfb837726b6a7f0701da4a94b2dd", [:mix], [{:decimal, "~> 1.0", [hex: :decimal, optional: false]}, {:db_connection, "~> 0.2", [hex: :db_connection, optional: false]}, {:connection, "~> 1.0", [hex: :connection, optional: false]}]},
   "ranch": {:hex, :ranch, "1.2.1", "a6fb992c10f2187b46ffd17ce398ddf8a54f691b81768f9ef5f461ea7e28c762", [:make], []},
-  "slime": {:hex, :slime, "0.13.0", "fb9b1296b5ef3fe6aed09deec2794a146c94f5270b3bcd9f956c01d3660fc196", [:mix], []}}
+  "slime": {:hex, :slime, "0.13.0", "fb9b1296b5ef3fe6aed09deec2794a146c94f5270b3bcd9f956c01d3660fc196", [:mix], []},
+  "ueberauth": {:hex, :ueberauth, "0.2.0", "9160c601b468c6692462a56be7ad8890d1a2d84519d7d9c4541da5b07d6495e1", [:mix], [{:plug, "~> 1.0", [hex: :plug, optional: false]}]},
+  "ueberauth_identity": {:hex, :ueberauth_identity, "0.2.3", "216f18ca24347f6b3dd0e5f4342b6fef7a4027fad0d133f1c454d51b7eaac55b", [:mix], [{:ueberauth, "~> 0.2", [hex: :ueberauth, optional: false]}, {:plug, "~> 1.0", [hex: :plug, optional: false]}]}}
