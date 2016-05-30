@@ -1,0 +1,13 @@
+= form_tag @callback_url, method: "post" do
+  .control-group
+    label.control-label for='email-input' Email
+    input.form-control type='email' name='email'
+  .control-group
+    label.control-label for='password-input' Password
+    input.form-control type='password' name='password'
+  .control-group
+    label.control-label for='password-input' Confirm Password
+    input.form-control type='password' name='password_confirmation'
+  .control-group
+    button.btn.btn-primary Sign Up
+
