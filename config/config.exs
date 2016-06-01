@@ -21,8 +21,18 @@ config :logger, :console,
 
 config :ueberauth, Ueberauth,
   providers: [
-    identity: { Ueberauth.Strategy.Identity, [callback_methods: ["POST"] ] } 
+    identity: { Ueberauth.Strategy.Identity, [callback_methods: ["POST"]] },
+    google: { Ueberauth.Strategy.Google, [] },
+    strava: { Ueberauth.Strategy.Strava, [] }
   ]
+
+config :ueberauth, Ueberauth.Strategy.Google.OAuth,
+  client_id: System.get_env("GOOGLE_CLIENT_ID"),
+  client_secret: System.get_env("GOOGLE_CLIENT_SECRET")
+
+config :ueberauth, Ueberauth.Strategy.Strava.OAuth,
+  client_id: System.get_env("STRAVA_CLIENT_ID"),
+  client_secret: System.get_env("STRAVA_CLIENT_SECRET")
 
 config :phoenix, :template_engines,
   slim: PhoenixSlime.Engine,

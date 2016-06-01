@@ -15,4 +15,10 @@ defmodule Rnnr.AuthController do
     end
   end
 
+  require IEx
+  def callback(%{assigns: %{ueberauth_auth: auth}} = conn, _params) do
+    IEx.pry
+    conn
+  end
 end
+
