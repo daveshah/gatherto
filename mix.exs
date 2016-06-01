@@ -19,8 +19,7 @@ defmodule Rnnr.Mixfile do
   def application do
     [mod: {Rnnr, []},
      applications: [:phoenix, :phoenix_html, :cowboy, :logger, :gettext,
-                    :phoenix_ecto, :postgrex, :ueberauth, 
-                    :ueberauth_identity, :ueberauth_google, :ueberauth_strava]]
+                    :phoenix_ecto, :postgrex, :ueberauth, :ueberauth_strava]]
   end
 
   # Specifies which paths to compile per environment.
@@ -38,9 +37,7 @@ defmodule Rnnr.Mixfile do
      {:phoenix_html, "~> 2.4"},
      {:phoenix_slime, "~> 0.6.0"},
      {:ueberauth, "~> 0.2"},
-     {:ueberauth_identity, "~> 0.2"},
      {:ueberauth_strava, "~> 0.1"},
-     {:ueberauth_google, "~> 0.2"},
      {:phoenix_live_reload, "~> 1.0", only: :dev},
      {:gettext, "~> 0.9"},
      {:cowboy, "~> 1.0"},

@@ -15,4 +15,11 @@ defmodule Rnnr.UserTest do
     changeset = User.changeset(%User{}, @invalid_attrs)
     refute changeset.valid?
   end
+
+  test "find_or_create/1" do
+    assert Repo.get_by(User, email: "foo@bar.com") == nil
+    user = User.find_or_create(%{email: "foo@bar.com"})
+    assert user.email == "foo@bar.com"
+    assert Repo.get_by(User, email: "foo@bar.com") != nil
+  end
 end

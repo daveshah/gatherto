@@ -1,5 +1,6 @@
 defmodule Rnnr.User do
   use Rnnr.Web, :model
+  alias Rnnr.Repo
 
   schema "users" do
     field :email, :string
@@ -10,8 +11,8 @@ defmodule Rnnr.User do
     timestamps
   end
 
-  @required_fields ~w(email first_name last_name image)
-  @optional_fields ~w()
+  @required_fields ~w(email)
+  @optional_fields ~w(first_name last_name image)
 
   @doc """
   Creates a changeset based on the `model` and `params`.
@@ -22,5 +23,17 @@ defmodule Rnnr.User do
   def changeset(model, params \\ :empty) do
     model
     |> cast(params, @required_fields, @optional_fields)
+  end
+
+  def find_or_create(%{email: email} = possible_user) do
+    case user = Repo.get_by(Rnnr.User, email: email) do
+      nil ->
+        fields = @required_fields ++ @optional_fields
+        |> Enum.map(&String.to_atom/1)
+        changes = Map.take(possible_user, fields)
+        Rnnr.User.changeset(%Rnnr.User{}, changes)
+        |> Repo.insert!
+      _ -> user
+    end
   end
 end
