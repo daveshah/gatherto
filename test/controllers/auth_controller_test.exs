@@ -10,6 +10,21 @@ defmodule Rnnr.AuthControllerTest do
     |> Plug.Conn.assign(:ueberauth_auth, @auth) 
     |> get("/auth/strava/callback")
 
-    assert Repo.all(User) |> Enum.count == 1
+    assert the_count_of(User) == 1
   end
+
+  test "user retreival on callback", %{conn: conn} do
+    Repo.insert!(%User{email: @auth.info.email})
+
+    conn
+    |> Plug.Conn.assign(:ueberauth_auth, @auth)
+    |> get("/auth/strava/callback")
+
+    assert the_count_of(User) == 1
+  end
+
+  defp the_count_of(schema) do
+    Repo.all(schema) |> Enum.count
+  end
+  
 end
