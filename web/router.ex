@@ -24,7 +24,6 @@ defmodule Rnnr.Router do
     pipe_through :browser 
     get "/:provider", AuthController, :request
     get "/:provider/callback", AuthController, :callback
-    post "/identity/callback", AuthController, :identity_callback
   end
 
   # Other scopes may use custom stacks.

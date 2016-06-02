@@ -10,10 +10,10 @@ defmodule Rnnr.AuthController do
   end
 
   def callback(%{assigns: %{ueberauth_auth: auth}} = conn, _params) do
-    case User.find_or_create(auth.info) do
-      :ok -> conn
-      { :error, reason } -> conn
-    end
+    info = Map.from_struct(auth.info)
+    changest = User.changeset(%User{}, info)
+    Repo.insert(changest)
+    conn
   end
 end
 

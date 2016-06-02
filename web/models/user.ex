@@ -24,16 +24,4 @@ defmodule Rnnr.User do
     model
     |> cast(params, @required_fields, @optional_fields)
   end
-
-  def find_or_create(%{email: email} = possible_user) do
-    case user = Repo.get_by(Rnnr.User, email: email) do
-      nil ->
-        fields = @required_fields ++ @optional_fields
-        |> Enum.map(&String.to_atom/1)
-        changes = Map.take(possible_user, fields)
-        Rnnr.User.changeset(%Rnnr.User{}, changes)
-        |> Repo.insert!
-      _ -> user
-    end
-  end
 end
