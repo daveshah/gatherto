@@ -10,16 +10,18 @@ defmodule Rnnr.AuthController do
   end
 
   def callback(%{assigns: %{ueberauth_auth: auth}} = conn, _params) do
-    info = Map.from_struct(auth.info)
+    Map.from_struct(auth.info)
+    |> get_or_create_user
+    conn
+  end
 
-    case Repo.get_by(User, email: info.email) do
+  defp get_or_create_user(user_info) do
+    case Repo.get_by(User, email: user_info.email) do
       nil ->
-        changest = User.changeset(%User{}, info)
+        changest = User.changeset(%User{}, user_info)
         Repo.insert(changest)
       _ -> nil
     end
-
-    conn
   end
 end
 
