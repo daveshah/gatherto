@@ -17,6 +17,20 @@ config :gatherto, Gatherto.Endpoint,
   pubsub: [name: Gatherto.PubSub,
            adapter: Phoenix.PubSub.PG2]
 
+config :phoenix, :template_engines,
+  slim: PhoenixSlime.Engine,
+  slime: PhoenixSlime.Engine
+
+config :ueberauth, Ueberauth,
+  providers: [
+    strava: { Ueberauth.Strategy.Strava, [] }
+  ]
+
+config :ueberauth, Ueberauth.Strategy.Strava.OAuth,
+  client_id: System.get_env("STRAVA_CLIENT_ID"),
+  client_secret: System.get_env("STRAVA_CLIENT_SECRET")
+
+
 # Configures Elixir's Logger
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",
