@@ -19,11 +19,12 @@ defmodule Gatherto.Mixfile do
   def application do
     [mod: {Gatherto, []},
      applications: [:phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, :gettext,
-                    :phoenix_ecto, :postgrex]]
+                    :phoenix_ecto, :postgrex, :ueberauth, :ueberauth_strava]]
   end
 
   # Specifies which paths to compile per environment.
   defp elixirc_paths(:test), do: ["lib", "web", "test/support"]
+  defp elixirc_paths(:travis), do: ["lib", "web", "test/support"]
   defp elixirc_paths(_),     do: ["lib", "web"]
 
   # Specifies your project dependencies.
@@ -35,9 +36,14 @@ defmodule Gatherto.Mixfile do
      {:phoenix_ecto, "~> 3.0"},
      {:postgrex, ">= 0.0.0"},
      {:phoenix_html, "~> 2.6"},
+     {:phoenix_slime, "~> 0.6.0"},
+     {:ueberauth, "~> 0.2"},
+     {:ueberauth_strava, "~> 0.1"},
      {:phoenix_live_reload, "~> 1.0", only: :dev},
      {:gettext, "~> 0.11"},
-     {:cowboy, "~> 1.0"}]
+     {:cowboy, "~> 1.0"},
+     {:dogma, "~> 0.1", only: :dev},
+     {:mix_test_watch, "~> 0.2", only: :dev}]
   end
 
   # Aliases are shortcuts or tasks specific to the current project.
@@ -49,6 +55,7 @@ defmodule Gatherto.Mixfile do
   defp aliases do
     ["ecto.setup": ["ecto.create", "ecto.migrate", "run priv/repo/seeds.exs"],
      "ecto.reset": ["ecto.drop", "ecto.setup"],
-     "test": ["ecto.create --quiet", "ecto.migrate", "test"]]
+     "test": ["ecto.create --quiet", "ecto.migrate", "test"],
+     "s": ["phoenix.server"]]
   end
 end
