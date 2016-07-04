@@ -6,6 +6,7 @@ defmodule Gatherto.User do
     field :first_name, :string
     field :last_name, :string
     field :image, :string
+    many_to_many :runs, Gatherto.Run, join_through: Gatherto.UserRun
 
     timestamps()
   end
