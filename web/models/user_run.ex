@@ -2,9 +2,8 @@ defmodule Gatherto.UserRun do
   use Ecto.Schema
 
   schema "users_runs" do
-    field :user_id, :binary_id
-    field :run_id, :binary_id
-
+    belongs_to :user, Gatherto.User
+    belongs_to :run, Gatherto.Run
     timestamps()
   end
 end
