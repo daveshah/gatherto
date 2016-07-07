@@ -4,7 +4,7 @@ defmodule Gatherto.Run do
   schema "runs" do
     field :title, :string
     field :description, :string
-    many_to_many :users, Gatherto.User, join_through: Gatherto.UserRun
+    many_to_many :athletes, Gatherto.Athlete, join_through: Gatherto.AthleteRun
 
     timestamps()
   end

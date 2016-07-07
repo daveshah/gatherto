@@ -1,30 +1,44 @@
 defmodule Gatherto.AuthControllerTest do
   use Gatherto.ConnCase
   alias Gatherto.Repo
-  alias Gatherto.User
+  alias Gatherto.Athlete
 
-  @auth %Ueberauth.Auth{info: %Ueberauth.Auth.Info{email: "test@test.com"}}
+  @auth %Ueberauth.Auth{info: %Ueberauth.Auth.Info{email: "test@test.com",
+                                                   image: "http://awesome.com",
+                                                   first_name: "firsty",
+                                                   last_name: "lasty"}}
 
-  test "user creation on callback", %{conn: conn} do
-    conn
-    |> Plug.Conn.assign(:ueberauth_auth, @auth) 
-    |> get("/auth/strava/callback")
+  describe "Strava auth" do
+    test "user creation on callback", %{conn: conn} do
+      conn
+      |> Plug.Conn.assign(:ueberauth_auth, @auth)
+      |> get("/auth/strava/callback")
 
-    assert the_count_of(User) == 1
-  end
+      assert the_count_of(Athlete) == 1
 
-  test "user retreival on callback", %{conn: conn} do
-    Repo.insert!(%User{email: @auth.info.email})
+      athlete = the_first(Athlete)
+      assert athlete.email == @auth.info.email
+      assert athlete.first_name == @auth.info.first_name
+      assert athlete.last_name == @auth.info.last_name
+      assert athlete.image_url == @auth.info.image
+    end
 
-    conn
-    |> Plug.Conn.assign(:ueberauth_auth, @auth)
-    |> get("/auth/strava/callback")
+    test "user retreival on callback", %{conn: conn} do
+      Repo.insert!(%Athlete{email: @auth.info.email})
 
-    assert the_count_of(User) == 1
+      conn
+      |> Plug.Conn.assign(:ueberauth_auth, @auth)
+      |> get("/auth/strava/callback")
+
+      assert the_count_of(Athlete) == 1
+    end
   end
 
   defp the_count_of(schema) do
     Repo.all(schema) |> Enum.count
   end
-  
+
+  def the_first(schema) do
+    Repo.all(schema) |> List.first
+  end
 end
