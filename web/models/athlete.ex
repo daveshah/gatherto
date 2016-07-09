@@ -21,5 +21,6 @@ defmodule Gatherto.Athlete do
     struct
     |> cast(params, @required_fields, @optional_fields)
     |> validate_required(@required_fields)
+    |> unique_constraint(:email)
   end
 end

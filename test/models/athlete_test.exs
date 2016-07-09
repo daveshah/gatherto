@@ -15,4 +15,20 @@ defmodule Gatherto.AthleteTest do
     changeset = Athlete.changeset(%Athlete{}, @invalid_attrs)
     refute changeset.valid?
   end
+
+  test "email uniqueness" do
+    athlete = %Athlete{email: "test@test.com"}
+    Repo.insert!(athlete)
+
+    assert Repo.all(Athlete) |> length() == 1
+
+    assert_raise Ecto.ConstraintError, fn ->
+      Repo.insert(%Athlete{email: "test@test.com"})
+    end
+  end
+
+  describe "relationships" do
+    test "adding runs" do
+    end
+  end
 end
