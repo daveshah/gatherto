@@ -17,18 +17,25 @@ defmodule Gatherto.AthleteTest do
   end
 
   test "email uniqueness" do
-    athlete = %Athlete{email: "test@test.com"}
-    Repo.insert!(athlete)
+    email = "test@test.com"
 
+    Repo.insert!(%Athlete{email: email})
     assert Repo.all(Athlete) |> length() == 1
 
     assert_raise Ecto.ConstraintError, fn ->
-      Repo.insert(%Athlete{email: "test@test.com"})
+      Repo.insert(%Athlete{email: email})
     end
   end
 
   describe "relationships" do
-    test "adding runs" do
-    end
+    alias Gatherto.Run
+
+    #test "adding runs" do
+    #  run = %Run{title: "Best run ever", description: "long and fast"}
+    #  athlete = Repo.insert!(%Athlete{email: "test@email.com"})
+    #  changeset = Athlete.add_run_changeset(athlete, run)
+
+    #  {:ok, changed_athlete} = Repo.update(changeset)
+    #end
   end
 end

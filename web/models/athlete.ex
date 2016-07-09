@@ -23,4 +23,9 @@ defmodule Gatherto.Athlete do
     |> validate_required(@required_fields)
     |> unique_constraint(:email)
   end
+
+  def add_run_changeset(athlete, run) do
+    Changeset.change(athlete)
+    |> Changeset.put_assoc(:runs)
+  end
 end
