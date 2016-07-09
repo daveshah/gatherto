@@ -4,6 +4,7 @@ defmodule Gatherto.Run do
   schema "runs" do
     field :title, :string
     field :description, :string
+    belongs_to :poster, Gatherto.Athlete, foreign_key: :athlete_id
     many_to_many :athletes, Gatherto.Athlete, join_through: Gatherto.AthleteRun
 
     timestamps()

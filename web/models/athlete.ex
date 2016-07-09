@@ -6,6 +6,7 @@ defmodule Gatherto.Athlete do
     field :first_name, :string
     field :last_name, :string
     field :image_url, :string
+    has_many :posted_runs, Gatherto.Run
     many_to_many :runs, Gatherto.Run, join_through: Gatherto.AthleteRun
 
     timestamps()
