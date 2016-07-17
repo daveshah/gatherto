@@ -28,8 +28,6 @@ defmodule Gatherto.AthleteTest do
   end
 
   describe "relationships" do
-    alias Gatherto.Run
-
     #test "adding runs" do
     #  run = %Run{title: "Best run ever", description: "long and fast"}
     #  athlete = Repo.insert!(%Athlete{email: "test@email.com"})
