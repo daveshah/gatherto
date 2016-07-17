@@ -22,7 +22,9 @@ config :gatherto, Gatherto.Endpoint,
       ~r{priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$},
       ~r{priv/gettext/.*(po)$},
       ~r{web/views/.*(ex)$},
-      ~r{web/templates/.*(eex)$}
+      ~r{web/templates/.*(eex)$},
+      ~r{web/templates/.*(slim)$},
+      ~r{web/templates/.*(slime)$}
     ]
   ]
 

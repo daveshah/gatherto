@@ -3,6 +3,6 @@ defmodule Gatherto.PageControllerTest do
 
   test "GET /", %{conn: conn} do
     conn = get conn, "/"
-    assert html_response(conn, 200) =~ "Welcome to Runnr"
+    assert html_response(conn, 200) =~ "GatherTo"
   end
 end
