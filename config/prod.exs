@@ -70,3 +70,4 @@ config :logger, level: :info
 
 # Finally import the config/prod.secret.exs
 # which should be versioned separately.
+# prod.secret.exs REMOVED FOR HEROKU
