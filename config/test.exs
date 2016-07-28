@@ -12,8 +12,8 @@ config :logger, level: :warn
 # Configure your database
 config :gatherto, Gatherto.Repo,
   adapter: Ecto.Adapters.Postgres,
-  username: "dshah",
-  password: "",
+  username: System.get_env("PG_USER"),
+  password: System.get_env("PG_PASSWORD"),
   database: "gatherto_test",
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox
