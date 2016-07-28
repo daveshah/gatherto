@@ -38,8 +38,8 @@ config :phoenix, :stacktrace_depth, 20
 # Configure your database
 config :gatherto, Gatherto.Repo,
   adapter: Ecto.Adapters.Postgres,
-  username: "dshah",
-  password: "",
+  username: System.get_env("PG_USER"),
+  password: System.get_env("PG_PASSWORD"),
   database: "gatherto_dev",
   hostname: "localhost",
   pool_size: 10
