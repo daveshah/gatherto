@@ -9,4 +9,11 @@ config :gatherto, Gatherto.Endpoint,
 # Print only warnings and errors during test
 config :logger, level: :warn
 
-import_config "test.secret.exs"
+# Configure your database
+config :gatherto, Gatherto.Repo,
+  adapter: Ecto.Adapters.Postgres,
+  username: "dshah",
+  password: "",
+  database: "gatherto_test",
+  hostname: "localhost",
+  pool: Ecto.Adapters.SQL.Sandbox
