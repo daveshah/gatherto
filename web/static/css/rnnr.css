@@ -1,6 +1,21 @@
-.sign-up-button {
+.strava-sign-up-button {
   background-image: url("/images/ConnectWithStrava.png");
   width: 172px;
-  height: 31px; 
+  height: 31px;
   border-radius: 8px;
+}
+
+.google-sign-up-button {
+    background-image: url("/images/btn_google_signin_light_normal_web.png");
+    width: 191px;
+    height: 46px;
+    border: none;
+}
+
+.google-sign-up-button:hover {
+    background-image: url("/images/btn_google_signin_light_focus_web.png");
+}
+
+.google-sign-up-button:active {
+    background-image: url("/images/btn_google_signin_light_pressed_web.png");
 }

@@ -19,7 +19,7 @@ defmodule Gatherto.Mixfile do
   def application do
     [mod: {Gatherto, []},
      applications: [:phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, :gettext,
-                    :phoenix_ecto, :postgrex, :ueberauth, :ueberauth_strava]]
+                    :phoenix_ecto, :postgrex, :ueberauth, :ueberauth_strava, :ueberauth_google]]
   end
 
   # Specifies which paths to compile per environment.
@@ -39,6 +39,7 @@ defmodule Gatherto.Mixfile do
      {:phoenix_slime, "~> 0.6.0"},
      {:ueberauth, "~> 0.2"},
      {:ueberauth_strava, "~> 0.1"},
+     {:ueberauth_google, "~> 0.2"},
      {:phoenix_live_reload, "~> 1.0", only: :dev},
      {:gettext, "~> 0.11"},
      {:cowboy, "~> 1.0"},
