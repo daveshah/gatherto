@@ -1,0 +1,30 @@
+<h2>Listing runs</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Day and Time</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for run <- @runs do %>
+    <tr>
+      <td><%= run.title %></td>
+      <td><%= run.description %></td>
+      <td><%= run.time %></td>
+
+      <td class="text-right">
+        <%= link "Show", to: run_path(@conn, :show, run), class: "btn btn-default btn-xs" %>
+        <%= link "Edit", to: run_path(@conn, :edit, run), class: "btn btn-default btn-xs" %>
+        <%= link "Delete", to: run_path(@conn, :delete, run), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<%= link "New run", to: run_path(@conn, :new) %>
