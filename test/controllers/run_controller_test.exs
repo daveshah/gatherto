@@ -5,7 +5,9 @@ defmodule Gatherto.RunControllerTest do
 
   @valid_attrs %{description: "some content",
                  title: "some content",
-                 time: %{day: 12, hour: 14, min: 0, month: 8, sec: 0, year: 2018}}
+                 time: %{day: 12, hour: 14, min: 0, month: 8, sec: 0, year: 2018},
+                 minimum_distance: 10,
+                 maximum_distance: 15}
   @invalid_attrs %{}
 
   test "lists all entries on index", %{conn: conn} do

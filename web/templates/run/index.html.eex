@@ -6,6 +6,7 @@
       <th>Title</th>
       <th>Description</th>
       <th>Day and Time</th>
+      <th>Distance</th>
 
       <th></th>
     </tr>
@@ -16,6 +17,7 @@
       <td><%= run.title %></td>
       <td><%= run.description %></td>
       <td><%= run.time %></td>
+      <td><%= run.minimum_distance %> to <%= run.maximum_distance %> miles.</td>
 
       <td class="text-right">
         <%= link "Show", to: run_path(@conn, :show, run), class: "btn btn-default btn-xs" %>
