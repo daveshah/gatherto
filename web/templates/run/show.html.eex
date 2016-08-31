@@ -1,0 +1,19 @@
+<h2>Show run</h2>
+
+<ul>
+  <li>
+    <strong>Title:</strong>
+    <%= @run.title %>
+  </li>
+  <li>
+    <strong>Description:</strong>
+    <%= @run.description %>
+  </li>
+  <li>
+    <strong>Day and Time:</strong>
+    <%= @run.time %>
+  </li>
+</ul>
+
+<%= link "Edit", to: run_path(@conn, :edit, @run) %>
+<%= link "Back", to: run_path(@conn, :index) %>

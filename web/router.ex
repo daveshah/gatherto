@@ -17,6 +17,8 @@ defmodule Gatherto.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
+
+    resources "/runs", RunController
   end
 
   scope "/auth", Gatherto do
