@@ -8,6 +8,8 @@ defmodule Gatherto.Athlete do
     field :image_url, :string
     has_many :posted_runs, Gatherto.Run
     many_to_many :runs, Gatherto.Run, join_through: Gatherto.AthleteRun
+    has_many :owned_clubs, Gatherto.Club
+    many_to_many :clubs, Gatherto.Club, join_through: Gatherto.RunClub
 
     timestamps()
   end
