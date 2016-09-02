@@ -3,12 +3,24 @@ defmodule Gatherto.RunView do
 
   alias Gatherto.Run
 
-  def distance_display(%Run{minimum_distance: nil, maximum_distance: nil}), do: ""
-  def distance_display(%Run{minimum_distance: distance, maximum_distance: nil}), do: "#{distance} mile(s)."
-  def distance_display(%Run{minimum_distance: nil, maximum_distance: distance}), do: "#{distance} mile(s)."
+  @default_umit "mile"
+
+  def distance_display(%Run{minimum_distance: nil,
+                            maximum_distance: nil}), do: ""
   def distance_display(%Run{minimum_distance: distance,
-                            maximum_distance: distance}), do: "#{distance} mile(s)."
+                            maximum_distance: nil}), do: single_distance(distance)
+  def distance_display(%Run{minimum_distance: nil,
+                            maximum_distance: distance}), do: single_distance(distance)
+  def distance_display(%Run{minimum_distance: distance,
+                            maximum_distance: distance}), do: single_distance(distance)
   def distance_display(%Run{minimum_distance: min_distance,
-                            maximum_distance: max_distance}), do: "#{min_distance} to #{max_distance} miles."
+                            maximum_distance: max_distance}) do
+    distance_range(min_distance, max_distance)
+  end
+
+  defp single_distance(distance, units \\ @default_umit), do: "#{distance} #{units}(s)."
+  defp distance_range(min_distance, max_distance, units \\ @default_umit) do
+    "#{min_distance} to #{max_distance} #{units}s."
+  end
 
 end

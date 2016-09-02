@@ -35,8 +35,7 @@ defmodule Gatherto.Run do
     validate_distance_range(changeset, min_dist, max_dist)
   end
 
-  defp validate_distance_range(changeset, nil, _), do: changeset
-  defp validate_distance_range(changeset, min_dist, max_dist) when min_dist > max_dist do
+  defp validate_distance_range(changeset, min_dist, max_dist) when is_integer(min_dist) and min_dist > max_dist do
     add_error(changeset, :minimum_distance, "minimum distance cannot be more than maximum")
   end
   defp validate_distance_range(changeset, _, _), do: changeset
