@@ -17,7 +17,7 @@
       <td><%= run.title %></td>
       <td><%= run.description %></td>
       <td><%= run.time %></td>
-      <td><%= distance_display(run) %> miles.</td>
+      <td><%= distance_display(run) %></td>
 
       <td class="text-right">
         <%= link "Show", to: run_path(@conn, :show, run), class: "btn btn-default btn-xs" %>
