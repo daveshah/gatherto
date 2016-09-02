@@ -3,6 +3,8 @@ defmodule Gatherto.RunController do
 
   alias Gatherto.Run
 
+  plug :scrub_params, "run" when action in [:create, :update]
+
   def index(conn, _params) do
     runs = Repo.all(Run)
     render(conn, "index.html", runs: runs)

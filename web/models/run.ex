@@ -14,14 +14,15 @@ defmodule Gatherto.Run do
     timestamps()
   end
 
-  @required_params [:title, :description, :time, :minimum_distance, :maximum_distance]
+  @required_params [:title, :description, :time]
+  @optional_params [:minimum_distance, :maximum_distance]
 
   @doc """
   Builds a changeset based on the `struct` and `params`.
   """
   def changeset(struct, params \\ %{}) do
     struct
-    |> cast(params, @required_params)
+    |> cast(params, @required_params, @optional_params)
     |> validate_required(@required_params)
     |> validate_number(:minimum_distance, greater_than: 0)
     |> validate_number(:maximum_distance, greater_than: 0)

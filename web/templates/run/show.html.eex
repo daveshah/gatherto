@@ -15,7 +15,7 @@
   </li>
   <li>
       <strong>Distance:</strong>
-      <%= @run.minimum_distance %> to <%= @run.maximum_distance %> miles.
+      <%= distance_display(@run) %> miles.
   </li>
 </ul>
 
