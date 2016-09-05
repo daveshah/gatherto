@@ -19,6 +19,7 @@ defmodule Gatherto.Router do
     get "/", PageController, :index
 
     resources "/runs", RunController
+    resources "/clubs", ClubController
   end
 
   scope "/auth", Gatherto do

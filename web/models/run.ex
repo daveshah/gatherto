@@ -7,6 +7,7 @@ defmodule Gatherto.Run do
     field :time, Ecto.DateTime
     belongs_to :created_by, Gatherto.Athlete, foreign_key: :athlete_id
     many_to_many :athletes, Gatherto.Athlete, join_through: Gatherto.AthleteRun
+    many_to_many :clubs, Gatherto.Club, join_through: Gatherto.AthleteClub
 
     timestamps()
   end

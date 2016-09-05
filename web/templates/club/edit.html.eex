@@ -1,0 +1,6 @@
+<h2>Edit club</h2>
+
+<%= render "form.html", changeset: @changeset,
+                        action: club_path(@conn, :update, @club) %>
+
+<%= link "Back", to: club_path(@conn, :index) %>
