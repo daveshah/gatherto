@@ -37,9 +37,16 @@ defmodule Gatherto.RunTest do
     end
 
     test "a run can have no minimum distances" do
-      valid_empty_distance = Map.merge(@valid_attrs, %{minimum_distance: nil,
-                                                       maximum_distance: 1})
-      changeset = Run.changeset(%Run{}, valid_empty_distance)
+      valid_empty_min_distance = Map.merge(@valid_attrs, %{minimum_distance: nil,
+                                                           maximum_distance: 1})
+      changeset = Run.changeset(%Run{}, valid_empty_min_distance)
+      assert changeset.valid?
+    end
+
+    test "a run can have no maximum distances" do
+      valid_empty_max_distance = Map.merge(@valid_attrs, %{minimum_distance: 1,
+                                                           maximum_distance: nil})
+      changeset = Run.changeset(%Run{}, valid_empty_max_distance)
       assert changeset.valid?
     end
 
