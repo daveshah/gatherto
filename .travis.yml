@@ -1,4 +1,8 @@
 language: elixir
+cache:
+  directories:
+    - _build
+    - deps
 elixir:
 - 1.3.0
 env:
