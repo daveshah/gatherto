@@ -5,7 +5,16 @@ defmodule Gatherto.RunControllerTest do
 
   @valid_attrs %{description: "some content",
                  title: "some content",
-                 time: %{day: 12, hour: 14, min: 0, month: 8, sec: 0, year: 2018}}
+                 time: %{day: 12, hour: 14, min: 0, month: 8, sec: 0, year: 2018},
+                 minimum_distance: 10,
+                 maximum_distance: 15}
+
+  @valid_empty_attrs %{description: "some content",
+                       title: "some content",
+                       time: %{day: 12, hour: 14, min: 0, month: 8, sec: 0, year: 2018},
+                       minimum_distance: "",
+                       maximum_distance: ""}
+
   @invalid_attrs %{}
 
   test "lists all entries on index", %{conn: conn} do
@@ -22,6 +31,13 @@ defmodule Gatherto.RunControllerTest do
     conn = post conn, run_path(conn, :create), run: @valid_attrs
     assert redirected_to(conn) == run_path(conn, :index)
     assert Repo.get_by(Run, @valid_attrs)
+  end
+
+  test "creates resource and redirects when data is valid but empty", %{conn: conn} do
+    conn = post conn, run_path(conn, :create), run: @valid_empty_attrs
+    assert redirected_to(conn) == run_path(conn, :index)
+    assert Repo.get_by(Run, Map.drop(@valid_empty_attrs, [:minimum_distance,
+                                                          :maximum_distance]))
   end
 
   test "does not create resource and renders errors when data is invalid", %{conn: conn} do
@@ -52,6 +68,14 @@ defmodule Gatherto.RunControllerTest do
     conn = put conn, run_path(conn, :update, run), run: @valid_attrs
     assert redirected_to(conn) == run_path(conn, :show, run)
     assert Repo.get_by(Run, @valid_attrs)
+  end
+
+  test "updates chosen resource and redirects when data is valid but empty", %{conn: conn} do
+    run = Repo.insert! %Run{}
+    conn = put conn, run_path(conn, :update, run), run: @valid_empty_attrs
+    assert redirected_to(conn) == run_path(conn, :show, run)
+    assert Repo.get_by(Run, Map.drop(@valid_empty_attrs, [:minimum_distance,
+                                                          :maximum_distance]))
   end
 
   test "does not update chosen resource and renders errors when data is invalid", %{conn: conn} do

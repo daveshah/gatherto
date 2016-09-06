@@ -13,6 +13,10 @@
     <strong>Day and Time:</strong>
     <%= @run.time %>
   </li>
+  <li>
+      <strong>Distance:</strong>
+      <%= distance_display(@run) %>
+  </li>
 </ul>
 
 <%= link "Edit", to: run_path(@conn, :edit, @run) %>
