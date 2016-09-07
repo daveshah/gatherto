@@ -7,7 +7,8 @@ defmodule Gatherto.RunTest do
                  title: "some content",
                  time: %{day: 12, hour: 14, min: 0, month: 8, sec: 0, year: 2018},
                  minimum_distance: 10,
-                 maximum_distance: 15}
+                 maximum_distance: 15,
+                 location_id: "foobar123"}
   @invalid_attrs %{}
 
   test "changeset with valid attributes" do

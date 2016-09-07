@@ -7,6 +7,7 @@ defmodule Gatherto.Run do
     field :time, Ecto.DateTime
     field :minimum_distance, :integer
     field :maximum_distance, :integer
+    field :location_id, :string
     belongs_to :created_by, Gatherto.Athlete, foreign_key: :athlete_id
     many_to_many :athletes, Gatherto.Athlete, join_through: Gatherto.AthleteRun
     many_to_many :clubs, Gatherto.Club, join_through: Gatherto.AthleteClub
@@ -15,7 +16,7 @@ defmodule Gatherto.Run do
   end
 
   @required_params [:title, :description, :time]
-  @optional_params [:minimum_distance, :maximum_distance]
+  @optional_params [:minimum_distance, :maximum_distance, :location_id]
 
   @doc """
   Builds a changeset based on the `struct` and `params`.

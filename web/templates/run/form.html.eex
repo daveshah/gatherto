@@ -17,6 +17,15 @@
     <%= error_tag f, :time %>
   </div>
 
+  <div id="location" class="form-group">
+    <%= label f, :location, class: "control-label" %>
+    <%= text_input f, :location_id, class: "hidden", id: :location_id %>
+
+    <input id="pac-input" class="form-control" type="text" placeholder="Enter a location">
+    <div id="map"></div>
+    <script src="<%= google_maps_api %>" async defer></script>
+  </div>
+
   <div class="form-group">
       <%= label f, :minimum_distance, class: "control-label" %>
       <%= number_input f, :minimum_distance, class: "form-control" %>
