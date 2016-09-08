@@ -9,12 +9,14 @@ defmodule Gatherto.AuthController do
     render(conn, "request.html", callback_url: Helpers.callback_url(conn))
   end
 
+  require IEx
   def callback(%{assigns: %{ueberauth_auth: auth}} = conn, _params) do
     athlete = Map.from_struct(auth.info)
               |> map_from_strava
               |> get_or_create_athlete
 
     conn
+    |> Guardian.Plug.sign_in(athlete)
     |> put_flash(:info, "Welcome #{athlete.first_name}")
     |> redirect(to: "/")
   end

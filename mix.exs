@@ -40,6 +40,7 @@ defmodule Gatherto.Mixfile do
      {:ueberauth, "~> 0.2"},
      {:ueberauth_strava, "~> 0.1"},
      {:ueberauth_google, "~> 0.2"},
+     {:guardian, "~>0.12.0"},
      {:phoenix_live_reload, "~> 1.0", only: :dev},
      {:gettext, "~> 0.11"},
      {:cowboy, "~> 1.0"},

@@ -9,6 +9,11 @@ defmodule Gatherto.Router do
     plug :put_secure_browser_headers
   end
 
+  pipeline :browser_auth do
+    plug Guardian.Plug.VerifySession
+    plug Guardian.Plug.LoadResource
+  end
+
   pipeline :api do
     plug :accepts, ["json"]
   end
@@ -18,8 +23,14 @@ defmodule Gatherto.Router do
 
     get "/", PageController, :index
 
-    resources "/runs", RunController
+    #resources "/runs", RunController
     resources "/clubs", ClubController
+  end
+
+  scope "/runs", Gatherto do
+    pipe_through [:browser, :browser_auth]
+
+    resources "/", RunController
   end
 
   scope "/auth", Gatherto do

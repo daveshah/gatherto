@@ -35,6 +35,12 @@ config :ueberauth, Ueberauth.Strategy.Google.OAuth,
   client_id: System.get_env("GOOGLE_CLIENT_ID"),
   client_secret: System.get_env("GOOGLE_CLIENT_SECRET")
 
+#TODO replace the secret key below - it was yanked from the above endpoint!
+config :guardian, Guardian,
+  issuer: "Gatherto",
+  ttl: { 30, :days },
+  secret_key: "U1T/brFnIk7MW5y25pbnzLOXI1LXTQANO0qv8fur+VuMWkYovEiFairmXKCz2Pbs",
+  serializer: Gatherto.GuardianSerializer
 
 # Configures Elixir's Logger
 config :logger, :console,

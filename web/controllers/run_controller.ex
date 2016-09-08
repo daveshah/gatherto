@@ -1,5 +1,6 @@
 defmodule Gatherto.RunController do
   use Gatherto.Web, :controller
+  plug Guardian.Plug.EnsureAuthenticated, handler: __MODULE__
 
   alias Gatherto.Run
 
