@@ -36,7 +36,6 @@
       <%= error_tag f, :maximum_distance %>
   </div>
 
-
   <div class="form-group">
     <%= label f, :description, class: "control-label" %>
     <%= textarea f, :description, class: "form-control" %>
