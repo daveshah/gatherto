@@ -9,7 +9,6 @@ defmodule Gatherto.AuthController do
     render(conn, "request.html", callback_url: Helpers.callback_url(conn))
   end
 
-  require IEx
   def callback(%{assigns: %{ueberauth_auth: auth}} = conn, _params) do
     athlete = Map.from_struct(auth.info)
               |> map_from_strava
