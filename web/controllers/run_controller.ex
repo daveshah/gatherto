@@ -29,18 +29,17 @@ defmodule Gatherto.RunController do
   end
 
   def show(conn, %{"id" => id}) do
-    run = Repo.get!(Run, id)
-    render(conn, "show.html", run: run)
+    render(conn, "show.html", run: run(id))
   end
 
   def edit(conn, %{"id" => id}) do
-    run = Repo.get!(Run, id)
+    run = run(id)
     changeset = Run.changeset(run)
     render(conn, "edit.html", run: run, changeset: changeset)
   end
 
   def update(conn, %{"id" => id, "run" => run_params}) do
-    run = Repo.get!(Run, id)
+    run = run(id)
     changeset = Run.changeset(run, run_params)
 
     case Repo.update(changeset) do
@@ -54,14 +53,13 @@ defmodule Gatherto.RunController do
   end
 
   def delete(conn, %{"id" => id}) do
-    run = Repo.get!(Run, id)
-
-    # Here we use delete! (with a bang) because we expect
-    # it to always work (and if it does not, it will raise).
-    Repo.delete!(run)
-
+    id |> run() |> Repo.delete!()
     conn
     |> put_flash(:info, "Run deleted successfully.")
     |> redirect(to: run_path(conn, :index))
+  end
+
+  defp run(id) do
+    Repo.get!(Run, id)
   end
 end
