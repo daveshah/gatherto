@@ -1,8 +1,8 @@
 defmodule Gatherto.RunController do
   use Gatherto.Web, :controller
-
   alias Gatherto.Run
 
+  plug Guardian.Plug.EnsureAuthenticated
   plug :scrub_params, "run" when action in [:create, :update]
 
   def index(conn, _params) do

@@ -1,9 +1,8 @@
 defmodule Gatherto.AuthController do
   use Gatherto.Web, :controller
-  plug Ueberauth
-
   alias Ueberauth.Strategy.Helpers
   alias Gatherto.Athlete
+  plug Ueberauth
 
   def request(conn, _params) do
     render(conn, "request.html", callback_url: Helpers.callback_url(conn))

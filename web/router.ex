@@ -7,10 +7,6 @@ defmodule Gatherto.Router do
     plug :fetch_flash
     plug :protect_from_forgery
     plug :put_secure_browser_headers
-  end
-
-  # TODO: use this!
-  pipeline :browser_auth do
     plug Guardian.Plug.VerifySession
     plug Guardian.Plug.LoadResource
   end
@@ -20,7 +16,7 @@ defmodule Gatherto.Router do
   end
 
   scope "/", Gatherto do
-    pipe_through :browser # Use the default browser stack
+    pipe_through :browser
 
     get "/", PageController, :index
 
