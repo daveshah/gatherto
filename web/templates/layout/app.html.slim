@@ -1,0 +1,30 @@
+doctype html
+html lang="en"
+  head
+    meta charset="utf-8"
+    meta http-equiv="X-UA-Compatible" content="IE=edge"
+    meta name="viewport" content="width=device-width, initial-scale=1"
+    meta name="description" content=""
+    meta name="author" content=""
+
+    title Let's Run!
+    <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
+    script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"
+
+  body
+    nav.navbar.navbar-inverse.navbar-fixed-top
+      .container
+        .navbar-header
+          a.navbar-brand GatherTo
+        .navbar-form
+          .navbar-right
+            = if logged_in? @conn do
+              = button "Log out", to: auth_path(@conn, :delete), method: :delete, class: "btn btn-default"
+    .jumbotron
+      .container
+
+    main role="main"
+      p.alert.alert-info role="alert" <%= get_flash(@conn, :info) %>
+      p.alert.alert-danger role="alert" <%= get_flash(@conn, :error) %></p>
+      <%= render @view_module, @view_template, assigns %>
+    <script src="<%= static_path(@conn, "/js/app.js") %>"></script>

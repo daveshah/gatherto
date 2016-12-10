@@ -10,7 +10,7 @@
 
 /* Space out content a bit */
 body, form, ul, table {
-  margin-top: 20px;
+  margin-top: 50px;
   margin-bottom: 20px;
 }
 
@@ -43,9 +43,9 @@ form.link, form.button {
 }
 
 /* Customize container */
-@media (min-width: 768px) {
+@media (min-width: 1200px) {
   .container {
-    max-width: 730px;
+    max-width: 1200px;
   }
 }
 .container-narrow > hr {

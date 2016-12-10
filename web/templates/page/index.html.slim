@@ -1,4 +1,4 @@
-.jumbotron
+.container
   h2 GatherTo
   p.lead Helping bring athletes together
     .signup
@@ -6,6 +6,8 @@
         a.btn.strava-sign-up-button href='/auth/strava' alt="Connect with Strava"
         a.btn.google-sign-up-button href='/auth/google' alt="Connect with Google"
 
-.row.marketting
-  .col-lg-6
-  .col-lg-6
+  h3 Upcoming Runs
+
+  ul
+    = for run <- @runs do
+      li = run.title

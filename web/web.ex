@@ -52,6 +52,7 @@ defmodule Gatherto.Web do
       import Gatherto.Router.Helpers
       import Gatherto.ErrorHelpers
       import Gatherto.Gettext
+      import Gatherto.ViewHelpers
     end
   end
 
