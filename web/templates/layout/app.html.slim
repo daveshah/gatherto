@@ -10,7 +10,6 @@ html lang="en"
     title Let's Run!
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
     script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"
-    script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"
 
   body
     nav.navbar.navbar-inverse.navbar-fixed-top
@@ -19,10 +18,13 @@ html lang="en"
           a.navbar-brand GatherTo
         .navbar-form
           .navbar-right
-            button.btn Sign Up / Login
+            - logged_in = false
+            = if logged_in do
+              button.btn Log Out
+            - else
+              button.btn Sign Up / Login
     .jumbotron
       .container
-        h1 Foo
 
     main role="main"
       p.alert.alert-info role="alert" <%= get_flash(@conn, :info) %>
