@@ -18,11 +18,8 @@ html lang="en"
           a.navbar-brand GatherTo
         .navbar-form
           .navbar-right
-            - logged_in = false
-            = if logged_in do
-              button.btn Log Out
-            - else
-              button.btn Sign Up / Login
+            = if logged_in? @conn do
+              = button "Log out", to: auth_path(@conn, :delete), method: :delete, class: "btn btn-default"
     .jumbotron
       .container
 

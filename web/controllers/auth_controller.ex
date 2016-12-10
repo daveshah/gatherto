@@ -9,14 +9,23 @@ defmodule Gatherto.AuthController do
   end
 
   def callback(%{assigns: %{ueberauth_auth: auth}} = conn, _params) do
-    athlete = Map.from_struct(auth.info)
-              |> map_from_strava
-              |> get_or_create_athlete
-
+    athlete = athlete(auth.info)
     conn
     |> Guardian.Plug.sign_in(athlete)
     |> put_flash(:info, "Welcome #{athlete.first_name}")
     |> redirect(to: "/")
+  end
+
+  def delete(conn, _params) do
+    Guardian.Plug.sign_out(conn)
+    |> put_flash(:info, "Logged out successfully")
+    |> redirect(to: "/")
+  end
+
+  defp athlete(auth_info) do
+    Map.from_struct(auth_info)
+      |> map_from_strava
+      |> get_or_create_athlete
   end
 
   defp map_from_strava(map) do
@@ -35,5 +44,6 @@ defmodule Gatherto.AuthController do
       _ -> user
     end
   end
+
 end
 
