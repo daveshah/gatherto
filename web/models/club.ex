@@ -4,6 +4,7 @@ defmodule Gatherto.Club do
   schema "clubs" do
     field :title, :string
     field :description, :string
+    field :location_id, :string
     belongs_to :owner, Gatherto.Athlete, foreign_key: :owner_id
     many_to_many :athletes, Gatherto.Athlete, join_through: Gatherto.AthleteClub
     many_to_many :runs, Gatherto.Run, join_through: Gatherto.RunClub
@@ -12,7 +13,7 @@ defmodule Gatherto.Club do
   end
 
   @required_fields [:title]
-  @optional_fields [:description]
+  @optional_fields [:description, :location_id, :owner_id]
 
   @doc """
   Builds a changeset based on the `struct` and `params`.
@@ -22,5 +23,6 @@ defmodule Gatherto.Club do
     |> cast(params, @required_fields, @optional_fields)
     |> validate_required(@required_fields)
     |> unique_constraint(:title)
+    |> foreign_key_constraint(:owner_id)
   end
 end

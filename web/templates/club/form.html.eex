@@ -17,6 +17,15 @@
     <%= error_tag f, :description %>
   </div>
 
+  <div id="location" class="form-group">
+    <%= label f, :location, class: "control-label" %>
+    <%= text_input f, :location_id, class: "hidden", id: :location_id %>
+
+    <input id="pac-input" class="form-control" type="text" placeholder="Where is this club based?">
+    <div id="map"></div>
+    <script src="<%= google_maps_api %>" async defer></script>
+  </div>
+
   <div class="form-group">
     <%= submit "Submit", class: "btn btn-primary" %>
   </div>
