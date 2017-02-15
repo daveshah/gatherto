@@ -15,8 +15,8 @@ defmodule Gatherto.Run do
     timestamps()
   end
 
-  @required_params [:title, :description, :time]
-  @optional_params [:minimum_distance, :maximum_distance, :location_id]
+  @required_params [:title, :time]
+  @optional_params [:minimum_distance, :maximum_distance, :location_id, :description]
 
   @doc """
   Builds a changeset based on the `struct` and `params`.

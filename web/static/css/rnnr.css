@@ -42,11 +42,14 @@
 
 #pac-input {
     background-color: #fff;
-    font-family: Roboto;
-    font-size: 15px;
+    font-size: 1rem;
     font-weight: 300;
     margin-left: 12px;
-    padding: 0 11px 0 13px;
+    padding: 0.5rem 0.75rem;
+    padding-top: 0.5rem;
+    padding-right: 0.75rem;
+    padding-bottom: 0.5rem;
+    padding-left: 0.75rem;
     text-overflow: ellipsis;
     width: 300px;
 }

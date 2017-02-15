@@ -5,18 +5,6 @@
     <strong>Title:</strong>
     <%= @run.title %>
   </li>
-  <li>
-    <strong>Description:</strong>
-    <%= @run.description %>
-  </li>
-  <li>
-    <strong>Day and Time:</strong>
-    <%= @run.time %>
-  </li>
-  <li>
-      <strong>Distance:</strong>
-      <%= distance_display(@run) %>
-  </li>
 </ul>
 
 <%= link "Edit", to: run_path(@conn, :edit, @run) %>

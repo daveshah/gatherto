@@ -11,7 +11,7 @@ defmodule Gatherto.RunController do
   end
 
   def new(conn, _params) do
-    changeset = Run.changeset(%Run{})
+    changeset = Run.changeset(%Run{title: "Today's Run"})
     render(conn, "new.html", changeset: changeset)
   end
 
