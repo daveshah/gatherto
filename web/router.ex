@@ -22,7 +22,8 @@ defmodule Gatherto.Router do
     pipe_through [:browser, :browser_session]
 
     get "/", PageController, :index
-    delete "/logout", AuthController, :delete
+    # TODO: this should be a delete
+    get "/logout", AuthController, :delete
 
     resources "/runs", RunController
     resources "/clubs", ClubController

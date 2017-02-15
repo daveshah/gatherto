@@ -19,18 +19,18 @@
 
   <div class="form-group">
     <%= label f, :location, class: "control-label" %>
-    <%= text_input f, :location_id, class: "form-control" %>
+    <%= text_input f, :location, class: "form-control" %>
   </div>
 
   <div class="form-group">
       <%= label f, :distance, class: "control-label" %>
-      <%= number_input f, :distance, class: "form-control" %>
+      <%= text_input f, :distance, class: "form-control" %>
       <%= error_tag f, :distance %>
   </div>
 
   <div class="form-group">
       <%= label f, :pace, class: "control-label" %>
-      <%= number_input f, :pace, class: "form-control" %>
+      <%= text_input f, :pace, class: "form-control" %>
       <%= error_tag f, :pace %>
   </div>
 

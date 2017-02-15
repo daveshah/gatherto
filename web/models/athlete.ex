@@ -6,6 +6,7 @@ defmodule Gatherto.Athlete do
     field :first_name, :string
     field :last_name, :string
     field :image_url, :string
+    field :phone, :string
     has_many :posted_runs, Gatherto.Run
     many_to_many :runs, Gatherto.Run, join_through: Gatherto.AthleteRun
 
@@ -13,7 +14,7 @@ defmodule Gatherto.Athlete do
   end
 
   @required_params [:email]
-  @optional_params [:first_name, :last_name, :image_url]
+  @optional_params [:first_name, :last_name, :image_url, :phone]
 
   def changeset(struct, params \\ %{}) do
     struct
