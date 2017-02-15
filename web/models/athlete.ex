@@ -8,22 +8,17 @@ defmodule Gatherto.Athlete do
     field :image_url, :string
     has_many :posted_runs, Gatherto.Run
     many_to_many :runs, Gatherto.Run, join_through: Gatherto.AthleteRun
-    has_many :owned_clubs, Gatherto.Club
-    many_to_many :clubs, Gatherto.Club, join_through: Gatherto.RunClub
 
     timestamps()
   end
 
-  @required_fields ~w(email)a
-  @optional_fields ~w(first_name last_name image_url)a
+  @required_params [:email]
+  @optional_params [:first_name, :last_name, :image_url]
 
-  @doc """
-  Builds a changeset based on the `struct` and `params`.
-  """
   def changeset(struct, params \\ %{}) do
     struct
-    |> cast(params, @required_fields, @optional_fields)
-    |> validate_required(@required_fields)
+    |> cast(params, @required_params, @optional_params)
+    |> validate_required(@required_params)
     |> unique_constraint(:email)
   end
 end

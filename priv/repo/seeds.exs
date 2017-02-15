@@ -14,7 +14,7 @@
 Gatherto.Repo.insert!(
   %Gatherto.Run{
   title: "Sunday Morning Run",
-  description: "Long run",
   time: Ecto.DateTime.cast!("2018-08-12 06:30:00"),
-  location_id: "ChIJxV1Rm5DyMIgRR8Tfyyb__Cc",
-  minimum_distance: 20})
+  location: "The Awesome Spot",
+  pace: "6:30 min/miles",
+  distance: "20 miles"})
