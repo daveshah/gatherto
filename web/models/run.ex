@@ -13,8 +13,8 @@ defmodule Gatherto.Run do
     timestamps()
   end
 
-  @required_params [:title, :time, :location]
-  @optional_params [:distance, :pace]
+  @required_params [:time, :location]
+  @optional_params [:distance, :pace, :title]
 
   def changeset(struct, params \\ %{}) do
     struct

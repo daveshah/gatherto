@@ -25,7 +25,7 @@ defmodule Gatherto.Router do
     # TODO: this should be a delete
     get "/logout", AuthController, :delete
 
-    resources "/runs", RunController
+    resources "/runs", RunController, except: [:index]
     resources "/clubs", ClubController
   end
 

@@ -9,7 +9,7 @@ defmodule Gatherto.RunControllerTest do
                  distance: "10 miles",
                  location: "The awesome spot" }
 
-  @valid_empty_attrs %{title: "some content",
+  @valid_empty_attrs %{title: "",
                        time: %{day: 12, hour: 14, min: 0, month: 8, sec: 0, year: 2018},
                        location: "The awesome spot",
                        distance: "",
@@ -32,11 +32,6 @@ defmodule Gatherto.RunControllerTest do
     |> recycle()
   end
 
-  test "lists all entries on index", %{ conn: conn} do
-    conn = get conn, run_path(conn, :index)
-    assert html_response(conn, 200) =~ "Listing runs"
-  end
-
   test "renders form for new resources", %{conn: conn} do
     conn = get conn, run_path(conn, :new)
     assert html_response(conn, 200) =~ "New run"
@@ -44,14 +39,14 @@ defmodule Gatherto.RunControllerTest do
 
   test "creates resource and redirects when data is valid", %{conn: conn} do
     conn = post conn, run_path(conn, :create), run: @valid_attrs
-    assert redirected_to(conn) == run_path(conn, :index)
+    assert redirected_to(conn) == page_path(conn, :index)
     assert Repo.get_by(Run, @valid_attrs)
   end
 
   test "creates resource and redirects when data is valid but empty", %{conn: conn} do
     conn = post conn, run_path(conn, :create), run: @valid_empty_attrs
-    assert redirected_to(conn) == run_path(conn, :index)
-    assert Repo.get_by(Run, Map.drop(@valid_empty_attrs, [:distance, :pace]))
+    assert redirected_to(conn) == page_path(conn, :index)
+    assert Repo.get_by(Run, Map.drop(@valid_empty_attrs, [:distance, :pace, :title]))
   end
 
   test "does not create resource and renders errors when data is invalid", %{conn: conn} do
@@ -62,7 +57,7 @@ defmodule Gatherto.RunControllerTest do
   test "shows chosen resource", %{conn: conn} do
     run = Repo.insert! %Run{}
     conn = get conn, run_path(conn, :show, run)
-    assert html_response(conn, 200) =~ "Show run"
+    assert html_response(conn, 200) =~ "Viewing page coming soon"
   end
 
   test "renders page not found when id is nonexistent", %{conn: conn} do
@@ -88,7 +83,7 @@ defmodule Gatherto.RunControllerTest do
     run = Repo.insert! %Run{}
     conn = put conn, run_path(conn, :update, run), run: @valid_empty_attrs
     assert redirected_to(conn) == run_path(conn, :show, run)
-    assert Repo.get_by(Run, Map.drop(@valid_empty_attrs, [:distance, :pace]))
+    assert Repo.get_by(Run, Map.drop(@valid_empty_attrs, [:distance, :pace, :title]))
   end
 
   test "does not update chosen resource and renders errors when data is invalid", %{conn: conn} do
@@ -100,7 +95,7 @@ defmodule Gatherto.RunControllerTest do
   test "deletes chosen resource", %{conn: conn} do
     run = Repo.insert! %Run{}
     conn = delete conn, run_path(conn, :delete, run)
-    assert redirected_to(conn) == run_path(conn, :index)
+    assert redirected_to(conn) == page_path(conn, :index)
     refute Repo.get(Run, run.id)
   end
 end

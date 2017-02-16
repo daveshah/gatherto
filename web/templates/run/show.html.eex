@@ -1,11 +1,6 @@
-<h2>Show run</h2>
+<h2> <%= @run.time %> </h2>
 
-<ul>
-  <li>
-    <strong>Title:</strong>
-    <%= @run.title %>
-  </li>
-</ul>
+<h3> Viewing page coming soon </h3>
 
-<%= link "Edit", to: run_path(@conn, :edit, @run) %>
-<%= link "Back", to: run_path(@conn, :index) %>
+<div> <%= link "Edit", to: run_path(@conn, :edit, @run) %> </div>
+<div> <%= link "Back", to: page_path(@conn, :index) %> </div>

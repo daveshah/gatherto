@@ -1,8 +1,8 @@
-h2 GatherTo
+h2 GatherTo.Run
 p.lead Bringing Runners Together
   = if logged_in? @conn do
       .div
-        a.new-run href="#{run_path(@conn, :new)}" Schedule a new Run
+        <%= render Gatherto.RunView, "index.html", assigns %>
   - else
       .signin
         h3

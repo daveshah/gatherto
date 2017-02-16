@@ -6,20 +6,17 @@
   <% end %>
 
   <div class="form-group">
-    <%= label f, :title, class: "control-label" %>
-    <%= text_input f, :title, class: "form-control" %>
-    <%= error_tag f, :title %>
+    <%= label f, :date, class: "control-label" %>
+    <input id="date" type="date" name="run[date]" class="form-control date">
   </div>
-
   <div class="form-group">
     <%= label f, :time, class: "control-label" %>
-    <%= custom_datetime_select f, :time, class: "form-control" %>
-    <%= error_tag f, :time %>
+    <input type="time" name="run[time]" value="07:00" class="form-control">
   </div>
-
   <div class="form-group">
     <%= label f, :location, class: "control-label" %>
     <%= text_input f, :location, class: "form-control" %>
+    <%= error_tag f, :location %>
   </div>
 
   <div class="form-group">
@@ -38,3 +35,10 @@
     <%= submit "Submit", class: "btn btn-primary" %>
   </div>
 <% end %>
+
+<script>
+  function dateString() {
+    return new Date().toISOString().slice(0,10)
+  }
+  document.getElementById("date").value = dateString();
+</script>
