@@ -35,6 +35,9 @@ config :ueberauth, Ueberauth.Strategy.Google.OAuth,
   client_id: System.get_env("GOOGLE_CLIENT_ID"),
   client_secret: System.get_env("GOOGLE_CLIENT_SECRET")
 
+config :ex_twilio, account_sid: {:system, "TWILIO_ACCOUNT_SID"},
+                   auth_token: {:system, "TWILIO_AUTH_TOKEN"}
+
 #TODO replace the secret key below - it was yanked from the above endpoint!
 config :guardian, Guardian,
   issuer: "Gatherto",
