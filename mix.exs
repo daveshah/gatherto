@@ -18,8 +18,10 @@ defmodule Gatherto.Mixfile do
   # Type `mix help compile.app` for more information.
   def application do
     [mod: {Gatherto, []},
-     applications: [:phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, :gettext,
-                    :phoenix_ecto, :postgrex, :ueberauth, :ueberauth_strava, :ueberauth_google, :ex_twilio]]
+     applications: [:phoenix, :phoenix_pubsub, :phoenix_html,
+                    :cowboy, :logger, :gettext, :phoenix_ecto,
+                    :postgrex, :ueberauth, :ueberauth_strava,
+                    :ueberauth_google, :ex_twilio, :timex]]
   end
 
   # Specifies which paths to compile per environment.
@@ -46,7 +48,8 @@ defmodule Gatherto.Mixfile do
      {:cowboy, "~> 1.0"},
      {:dogma, "~> 0.1", only: :dev},
      {:mix_test_watch, "~> 0.2", only: :dev},
-     {:ex_twilio, "~> 0.3.0"}]
+     {:ex_twilio, "~> 0.3.0"},
+     {:timex, "~> 3.0"}]
   end
 
   # Aliases are shortcuts or tasks specific to the current project.
