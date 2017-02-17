@@ -4,15 +4,18 @@
       <p>Oops, something went wrong! Please check the errors below.</p>
     </div>
   <% end %>
+
   <div class="form-group">
     <%= label f, :time, class: "control-label" %>
     <input type="time" name="run[time]" value="07:00" class="form-control">
   </div>
+
   <div class="form-group">
     <%= label f, :date, class: "control-label" %>
     <input id="datepicker" class="form-control date">
     <input id="date" name="run[date]" class="hidden">
   </div>
+
   <div class="form-group">
     <%= label f, :location, class: "control-label" %>
     <%= text_input f, :location, class: "form-control" %>
@@ -23,12 +26,6 @@
       <%= label f, :distance, class: "control-label" %>
       <%= text_input f, :distance, class: "form-control" %>
       <%= error_tag f, :distance %>
-  </div>
-
-  <div class="form-group">
-      <%= label f, :pace, class: "control-label" %>
-      <%= text_input f, :pace, class: "form-control" %>
-      <%= error_tag f, :pace %>
   </div>
 
   <div class="form-group">
