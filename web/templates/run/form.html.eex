@@ -4,14 +4,14 @@
       <p>Oops, something went wrong! Please check the errors below.</p>
     </div>
   <% end %>
-
-  <div class="form-group">
-    <%= label f, :date, class: "control-label" %>
-    <input id="date" type="date" name="run[date]" class="form-control date">
-  </div>
   <div class="form-group">
     <%= label f, :time, class: "control-label" %>
     <input type="time" name="run[time]" value="07:00" class="form-control">
+  </div>
+  <div class="form-group">
+    <%= label f, :date, class: "control-label" %>
+    <input id="datepicker" class="form-control date">
+    <input id="date" name="run[date]" class="hidden">
   </div>
   <div class="form-group">
     <%= label f, :location, class: "control-label" %>
@@ -37,8 +37,7 @@
 <% end %>
 
 <script>
-  function dateString() {
-    return new Date().toISOString().slice(0,10)
-  }
-  document.getElementById("date").value = dateString();
+ var dateString = new Date().toLocaleDateString();
+ $("#datepicker").datepicker({altField: "#date", altFormat: "yy-mm-dd"});
+ $("#datepicker").datepicker("setDate", dateString);
 </script>
