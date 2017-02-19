@@ -18,8 +18,7 @@ defmodule Gatherto.RunController do
 
     case Repo.insert(changeset) do
       {:ok, run} ->
-        msg = "Run on #{run.time} at #{run.location}"
-        Task.async( fn -> ExTwilio.Api.create(ExTwilio.Message, [to: "+14405524736", from: "+12164506425 ", body: msg])  end )
+        Gatherto.Messages.run_message(run, ["+14405524736"])
         conn
         |> put_flash(:info, "Run created successfully.")
         |> redirect(to: page_path(conn, :index))
