@@ -3,7 +3,7 @@ defmodule Gatherto.AthleteTest do
 
   alias Gatherto.Athlete
 
-  @valid_attrs %{email: "some content", first_name: "some content", image_url: "some content", last_name: "some content"}
+  @valid_attrs %{email: "some content", first_name: "some content", image_url: "some content", last_name: "some content", phone: "5555555"}
   @invalid_attrs %{}
 
   test "changeset with valid attributes" do
@@ -16,16 +16,16 @@ defmodule Gatherto.AthleteTest do
     refute changeset.valid?
   end
 
-  test "email uniqueness" do
-    email = "test@test.com"
+  #test "phone uniqueness" do
+  #  phone = "4405555555"
 
-    Repo.insert!(%Athlete{email: email})
-    assert Repo.all(Athlete) |> length() == 1
+  #  Repo.insert!(%Athlete{phone: phone})
+  #  assert Repo.all(Athlete) |> length() == 1
 
-    assert_raise Ecto.ConstraintError, fn ->
-      Repo.insert(%Athlete{email: email})
-    end
-  end
+  #  assert_raise Ecto.ConstraintError, fn ->
+  #    Repo.insert(%Athlete{phone: phone})
+  #  end
+  #end
 
   describe "relationships" do
     #test "adding runs" do

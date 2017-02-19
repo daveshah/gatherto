@@ -1,15 +1,6 @@
 h2 GatherTo.Run
 p.lead Bringing Runners Together
-  = if logged_in? @conn do
-      .runs
-        <%= render Gatherto.RunView, "index.html", assigns %>
-      .athletes
-        a href="#{athlete_path(@conn, :index)}" View Athletes
-  - else
-      .signin
-        h3
-          a.btn.strava-sign-up-button href='/auth/strava' alt="Connect with Strava"
-          a.btn.google-sign-up-button href='/auth/google' alt="Connect with Google"
-
-
-
+  .runs
+    <%= render Gatherto.RunView, "index.html", assigns %>
+  .athletes
+    a href="#{athlete_path(@conn, :index)}" View Athletes

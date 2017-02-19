@@ -10,8 +10,8 @@ defmodule Gatherto.Router do
   end
 
   pipeline :browser_session do
-    plug Guardian.Plug.VerifySession
-    plug Guardian.Plug.LoadResource
+    #plug Guardian.Plug.VerifySession
+    #plug Guardian.Plug.LoadResource
   end
 
   pipeline :api do
