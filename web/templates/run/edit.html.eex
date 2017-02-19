@@ -3,4 +3,10 @@
 <%= render "form.html", changeset: @changeset,
                         action: run_path(@conn, :update, @run) %>
 
+<div>
 <%= link "Back", to: page_path(@conn, :index) %>
+</div>
+
+<div>
+<%= link "Delete", to: run_path(@conn, :delete, @run), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %>
+</div>
