@@ -1,0 +1,19 @@
+h2 Listing athletes
+
+table.table
+  thead
+    tr
+      th Phone
+      th
+  tbody
+    = for athlete <- @athletes do
+      tr
+        td= athlete.phone
+        td class="text-right"
+          = link "Show", to: athlete_path(@conn, :show, athlete), class: "btn btn-default btn-xs"
+          | &nbsp;
+          = link "Edit", to: athlete_path(@conn, :edit, athlete), class: "btn btn-default btn-xs"
+          | &nbsp;
+          = link "Delete", to: athlete_path(@conn, :delete, athlete), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs"
+
+= link "New athlete", to: athlete_path(@conn, :new)

@@ -1,0 +1,10 @@
+h2 Show athlete
+
+ul
+  li
+    strong Phone:&nbsp;
+    = @athlete.phone
+
+= link "Edit", to: athlete_path(@conn, :edit, @athlete)
+| &nbsp;
+= link "Back", to: athlete_path(@conn, :index)

@@ -1,0 +1,5 @@
+h2 New athlete
+
+= render "form.html", changeset: @changeset, action: athlete_path(@conn, :create)
+
+= link "Back", to: athlete_path(@conn, :index)

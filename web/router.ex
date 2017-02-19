@@ -27,6 +27,7 @@ defmodule Gatherto.Router do
 
     resources "/runs", RunController, except: [:index]
     resources "/clubs", ClubController
+    resources "/athletes", AthleteController
   end
 
   scope "/auth", Gatherto do

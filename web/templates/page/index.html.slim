@@ -1,8 +1,10 @@
 h2 GatherTo.Run
 p.lead Bringing Runners Together
   = if logged_in? @conn do
-      .div
+      .runs
         <%= render Gatherto.RunView, "index.html", assigns %>
+      .athletes
+        a href="#{athlete_path(@conn, :index)}" View Athletes
   - else
       .signin
         h3

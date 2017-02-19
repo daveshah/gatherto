@@ -13,13 +13,14 @@ defmodule Gatherto.Athlete do
     timestamps()
   end
 
-  @required_params [:email]
+  #TODO: this will changup auth and need to format properly too
+  @required_params [:phone]
   @optional_params [:first_name, :last_name, :image_url, :phone]
 
   def changeset(struct, params \\ %{}) do
     struct
     |> cast(params, @required_params, @optional_params)
     |> validate_required(@required_params)
-    |> unique_constraint(:email)
+    |> unique_constraint(:phone)
   end
 end
